@@ -14,8 +14,9 @@ layout(location = 0) out vec4 colour;
 void main() {
   // *********************************
   // Sample textures
+  vec2 flipped_tex_coord = vec2(tex_coord.x, -tex_coord.y + 1);
   vec4 tex1 = texture(tex, tex_coord);
-  vec4 tex2 = texture(alpha_map, tex_coord);
+  vec4 tex2 = texture(alpha_map, flipped_tex_coord);
   // Final colour is produce of these two colours
   //colour = tex1 * tex2;
   colour = mix(tex1, tex2, tex2.a);

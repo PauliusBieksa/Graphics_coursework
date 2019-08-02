@@ -125,15 +125,12 @@ void main()
 
 
 	colour = calculate_directional(light, mat, new_normal, view_dir, tex_colour);
-    for (int i = 0; i < pn; i++)
+	for (int i = 0; i < pn; i++)
 	{
 		colour += calculate_point(points[i], mat, position, new_normal, view_dir, tex_colour);
 	}
     for (int i = 0; i < sn; i++)
 		// The only shadow map used at the moment is for spotlight 1
-		if (i != 1)
-			colour += calculate_spot(spots[i], mat, position, new_normal, view_dir, tex_colour);
-		else if (shade_factor > 0.5f)
 			colour += calculate_spot(spots[i], mat, position, new_normal, view_dir, tex_colour);
 	colour.a = 1.0;
 }

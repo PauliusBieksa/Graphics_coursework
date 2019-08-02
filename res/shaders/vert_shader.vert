@@ -45,7 +45,7 @@ void main()
   
   vertex_position = (M * vec4(position, 1.0)).xyz;
   transformed_normal = N * normal;
-  tex_coord_out = tex_coord_in;
+  tex_coord_out = vec2(tex_coord_in.x, tex_coord_in.y * -1.0 + 1.0);
 
   light_space_pos = lightbias * lMVP * vec4(position, 1.0);
   tangent_out = tangent;
